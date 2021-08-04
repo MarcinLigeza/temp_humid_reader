@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.0, 2021-03-16T22:39:09. -->
+<!-- Written by QtCreator 4.11.0, 2021-08-03T19:26:39. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -89,7 +89,28 @@
       <value type="QString" key="Qt4ProjectManager.MakeStep.MakeCommand"></value>
       <value type="bool" key="Qt4ProjectManager.MakeStep.OverrideMakeflags">false</value>
      </valuemap>
-     <value type="int" key="ProjectExplorer.BuildStepList.StepsCount">2</value>
+     <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.2">
+      <value type="bool" key="ProjectExplorer.BuildStep.Enabled">false</value>
+      <value type="QString" key="ProjectExplorer.ProcessStep.Arguments">pi@192.168.1.136 'sudo pkill temp_humid_reader'</value>
+      <value type="QString" key="ProjectExplorer.ProcessStep.Command">ssh</value>
+      <value type="QString" key="ProjectExplorer.ProcessStep.WorkingDirectory">%{buildDir}</value>
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.ProcessStep</value>
+     </valuemap>
+     <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.3">
+      <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
+      <value type="QString" key="ProjectExplorer.ProcessStep.Arguments">temp_humid_reader pi@192.168.1.136:/home/pi/Desktop</value>
+      <value type="QString" key="ProjectExplorer.ProcessStep.Command">scp</value>
+      <value type="QString" key="ProjectExplorer.ProcessStep.WorkingDirectory">%{buildDir}</value>
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.ProcessStep</value>
+     </valuemap>
+     <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.4">
+      <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
+      <value type="QString" key="ProjectExplorer.ProcessStep.Arguments">-r secrets pi@192.168.1.136:/home/pi/Desktop</value>
+      <value type="QString" key="ProjectExplorer.ProcessStep.Command">scp</value>
+      <value type="QString" key="ProjectExplorer.ProcessStep.WorkingDirectory">%{CurrentProject:Path}</value>
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.ProcessStep</value>
+     </valuemap>
+     <value type="int" key="ProjectExplorer.BuildStepList.StepsCount">5</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Build</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Build</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.BuildSteps.Build</value>
@@ -229,16 +250,6 @@
      </valuemap>
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.1">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
-      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">RemoteLinux.KillAppStep</value>
-      <valuelist type="QVariantList" key="ProjectExplorer.RunConfiguration.LastDeployedFiles"/>
-      <valuelist type="QVariantList" key="ProjectExplorer.RunConfiguration.LastDeployedHosts"/>
-      <valuelist type="QVariantList" key="ProjectExplorer.RunConfiguration.LastDeployedRemotePaths"/>
-      <valuelist type="QVariantList" key="ProjectExplorer.RunConfiguration.LastDeployedSysroots"/>
-      <valuelist type="QVariantList" key="RemoteLinux.LastDeployedLocalTimes"/>
-      <valuelist type="QVariantList" key="RemoteLinux.LastDeployedRemoteTimes"/>
-     </valuemap>
-     <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.2">
-      <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">RemoteLinux.RsyncDeployStep</value>
       <valuelist type="QVariantList" key="ProjectExplorer.RunConfiguration.LastDeployedFiles"/>
       <valuelist type="QVariantList" key="ProjectExplorer.RunConfiguration.LastDeployedHosts"/>
@@ -248,6 +259,16 @@
       <valuelist type="QVariantList" key="RemoteLinux.LastDeployedRemoteTimes"/>
       <value type="QString" key="RemoteLinux.RsyncDeployStep.Flags">-av</value>
       <value type="bool" key="RemoteLinux.RsyncDeployStep.IgnoreMissingFiles">false</value>
+     </valuemap>
+     <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.2">
+      <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">RemoteLinux.KillAppStep</value>
+      <valuelist type="QVariantList" key="ProjectExplorer.RunConfiguration.LastDeployedFiles"/>
+      <valuelist type="QVariantList" key="ProjectExplorer.RunConfiguration.LastDeployedHosts"/>
+      <valuelist type="QVariantList" key="ProjectExplorer.RunConfiguration.LastDeployedRemotePaths"/>
+      <valuelist type="QVariantList" key="ProjectExplorer.RunConfiguration.LastDeployedSysroots"/>
+      <valuelist type="QVariantList" key="RemoteLinux.LastDeployedLocalTimes"/>
+      <valuelist type="QVariantList" key="RemoteLinux.LastDeployedRemoteTimes"/>
      </valuemap>
      <value type="int" key="ProjectExplorer.BuildStepList.StepsCount">3</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Deploy</value>

@@ -4,8 +4,11 @@
 #include <QMainWindow>
 #include <QtNetwork/QNetworkAccessManager>
 
+#include <QGraphicsScene>
+
 #include "BrightnessController.hpp"
 #include "TSL_Wrapper.hpp"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -47,5 +50,9 @@ private:
     void show_time();
     void query_weather_api();
     void query_light_sensor();
+
+    QString get_api_key();
+
+    QGraphicsScene *scene;
 };
 #endif // MAINWINDOW_H

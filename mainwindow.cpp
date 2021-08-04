@@ -9,6 +9,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
+#include <QFile>
 
 #include "TSL_Config.hpp"
 #include "TSL2581.hpp"
@@ -34,25 +35,16 @@ MainWindow::MainWindow(QWidget *parent)
     connect(time_timer, &QTimer::timeout, this, &MainWindow::show_time);
     time_timer->start(100);
 
-//    if(DEV_ModuleInit() != 1)
-//    {
-//        ui->debug_label->setText("Module init");
-//        Init_TSL2581();
-
-//        ui->debug_label->setText("tsl init");
-//        QTimer *light_timer = new QTimer(this);
-//        connect(light_timer, &QTimer::timeout, this, &MainWindow::query_light_sensor);
-//        light_timer->start(200);
-//    }
-//    else
-//    {
-//        ui->debug_label->setText("light sensor initialisation error");
-//    }
-
-
     show_time();
 
     showFullScreen();
+
+    scene = new QGraphicsScene(this);
+
+    scene->addLine(1, 2, 5, 10, QPen());
+    ui->graphicsView->setScene(scene);
+    ui->graphicsView->show();
+
 }
 
 MainWindow::~MainWindow()
@@ -119,12 +111,29 @@ void MainWindow::query_weather_api()
     qDebug()<< "url: "<< url.toString(QUrl::FullyEncoded);
 
     network_access_manager->get(QNetworkRequest(url));
+    ui->slider_label->setText(QString::number(get_api_key().length()));
 }
 
 void MainWindow::query_light_sensor()
 {
     auto lux = tsl->calculate_lux(0, NOM_INTEG_CYCLE);
     ui->debug_label->setText(QString("light sensor reading: ") + QString::number(lux));
+}
+
+QString MainWindow::get_api_key()
+{
+    //TODO: nie działa - skopiować secrets na raspberry
+    QFile file("secrets/api_keys");
+    if(!file.open(QIODevice::ReadOnly)) {
+        std::runtime_error("Cannot open file containing api key");
+    }
+
+    QTextStream in(&file);
+    QString key = in.readAll().split("=")[1];
+
+    file.close();
+
+    return key;
 }
 
 

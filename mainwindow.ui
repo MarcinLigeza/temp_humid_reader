@@ -20,7 +20,7 @@
       <x>35</x>
       <y>30</y>
       <width>731</width>
-      <height>391</height>
+      <height>407</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -155,53 +155,45 @@ QSlider::groove:horizontal {
       </layout>
      </item>
      <item>
-      <widget class="QLCDNumber" name="lcdNumber">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>36</pointsize>
-        </font>
-       </property>
-       <property name="digitCount">
-        <number>8</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="1" column="2">
-        <widget class="QLabel" name="temp_out_value_label">
-         <property name="font">
-          <font>
-           <pointsize>36</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>0.0 °C</string>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QGraphicsView" name="graphicsView">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QLCDNumber" name="lcdNumber">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>26</pointsize>
+          </font>
+         </property>
+         <property name="digitCount">
+          <number>8</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QGridLayout" name="gridLayout">
        <item row="2" column="2">
         <widget class="QLabel" name="humid_out_value_label">
          <property name="font">
@@ -214,8 +206,8 @@ QSlider::groove:horizontal {
          </property>
         </widget>
        </item>
-       <item row="1" column="1">
-        <widget class="QLabel" name="temp_value_label">
+       <item row="1" column="2">
+        <widget class="QLabel" name="temp_out_value_label">
          <property name="font">
           <font>
            <pointsize>36</pointsize>
@@ -238,11 +230,23 @@ QSlider::groove:horizontal {
          </property>
         </widget>
        </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="label_4">
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Zewn</string>
+         </property>
+        </widget>
+       </item>
        <item row="1" column="0">
         <widget class="QLabel" name="temp_label">
          <property name="font">
           <font>
-           <pointsize>36</pointsize>
+           <pointsize>24</pointsize>
           </font>
          </property>
          <property name="text">
@@ -254,7 +258,7 @@ QSlider::groove:horizontal {
         <widget class="QLabel" name="humid_label">
          <property name="font">
           <font>
-           <pointsize>36</pointsize>
+           <pointsize>24</pointsize>
           </font>
          </property>
          <property name="text">
@@ -262,11 +266,23 @@ QSlider::groove:horizontal {
          </property>
         </widget>
        </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="temp_value_label">
+         <property name="font">
+          <font>
+           <pointsize>36</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>0.0 °C</string>
+         </property>
+        </widget>
+       </item>
        <item row="0" column="1">
         <widget class="QLabel" name="label_3">
          <property name="font">
           <font>
-           <pointsize>36</pointsize>
+           <pointsize>20</pointsize>
           </font>
          </property>
          <property name="text">
@@ -274,47 +290,23 @@ QSlider::groove:horizontal {
          </property>
         </widget>
        </item>
-       <item row="0" column="2">
-        <widget class="QLabel" name="label_4">
-         <property name="font">
-          <font>
-           <pointsize>36</pointsize>
-          </font>
-         </property>
+       <item row="3" column="0">
+        <widget class="QLabel" name="debug_label">
          <property name="text">
-          <string>Zewn</string>
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QLabel" name="slider_label">
+         <property name="text">
+          <string>TextLabel</string>
          </property>
         </widget>
        </item>
       </layout>
      </item>
     </layout>
-   </widget>
-   <widget class="QLabel" name="debug_label">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>420</y>
-      <width>291</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="slider_label">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>430</y>
-      <width>321</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
    </widget>
    <widget class="QPushButton" name="close_button">
     <property name="geometry">
