@@ -14,8 +14,6 @@
 #include "TSL_Config.hpp"
 #include "TSL2581.hpp"
 
-
-const QString KEY = "522b3cd11994164b77884ee6fc2af8a7";
 const QString CITY = "Krakow,pl";
 
 MainWindow::MainWindow(QWidget *parent)
@@ -103,7 +101,7 @@ void MainWindow::query_weather_api()
 {
     QUrlQuery query;
     query.addQueryItem("q", CITY);
-    query.addQueryItem("APPID", KEY);
+    query.addQueryItem("APPID", get_api_key());
 
     QUrl url("http://api.openweathermap.org/data/2.5/weather");
     url.setQuery(query);
